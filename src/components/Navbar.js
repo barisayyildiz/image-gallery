@@ -1,6 +1,8 @@
-import React, {useRef} from 'react'
+import React, {useRef, useContext} from 'react'
 
 import axios from 'axios';
+
+import { ImageContext } from '../App';
 
 import '../styles/Navbar.scss'
 
@@ -8,15 +10,29 @@ function Navbar() {
 
 	const queryRef = useRef();
 
+	// get images from context
+	const {images, setImages} = useContext(ImageContext);
 	
 	const handleClick = async () => {
 
 		console.log(queryRef.current.value);
 		const query = queryRef.current.value;
 
-		let data = await axios.get(`https://api.unsplash.com/search/photos?query=${query}&client_id=Gn1O41PYFtLC-EdlVpqu_rsSDF5aeVCiQJdTMFQhoeY`);
+		let { data : results} = await axios.get(`https://api.unsplash.com/search/photos?query=${query}&client_id=Gn1O41PYFtLC-EdlVpqu_rsSDF5aeVCiQJdTMFQhoeY`);
 
-		console.log(data);
+		results = results.results;
+		console.log(results);
+
+		let images = results.map(item => {
+			return({
+					source : item.urls.regular,
+					link : item.links.html
+			})
+		})
+
+		setImages(images);
+
+		console.log(results);
 
 	}
 

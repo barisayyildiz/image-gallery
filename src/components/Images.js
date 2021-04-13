@@ -1,17 +1,36 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
 import '../styles/Images.scss';
 
+import { ImageContext } from '../App';
+
 function Images() {
+
+	// get images from context
+	const {images, setImages} = useContext(ImageContext);
 
 	// "https://picsum.photos/600/300/?random"
 
 	return (
 		
 		<div className="masonry">
+			{
+				images ?
+				images.map(item => {
+					return(
+						<div className="brick">
+							<a href={item.link} target="_blank">
+								<img src={item.source}></img>
+							</a>
+						</div>
+					)
+				}) : null
+			}
 
-	<div class="brick">
-    <img src="https://image.freepik.com/foto-gratuito/trama-di-pittura-ad-olio-viola_53876-94002.jpg"/>
+	{/* <div class="brick">
+		<a href="#">
+			<img src="https://image.freepik.com/foto-gratuito/trama-di-pittura-ad-olio-viola_53876-94002.jpg"/>
+		</a>
   </div>
   <div class="brick">	        	
     <img src="https://images.unsplash.com/photo-1558980394-dbb977039a2e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80"/>
@@ -88,7 +107,7 @@ function Images() {
 
 	<div className="brick">
 		<img src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"></img>
-	</div>
+	</div> */}
 
 
 		</div>
