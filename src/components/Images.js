@@ -27,7 +27,7 @@ function Images() {
 				}) : null
 			}
 
-	{/* <div class="brick">
+	<div class="brick">
 		<a href="#">
 			<img src="https://image.freepik.com/foto-gratuito/trama-di-pittura-ad-olio-viola_53876-94002.jpg"/>
 		</a>
@@ -107,7 +107,7 @@ function Images() {
 
 	<div className="brick">
 		<img src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"></img>
-	</div> */}
+	</div>
 
 
 		</div>
