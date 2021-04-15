@@ -1,4 +1,4 @@
-import React, {useRef, useContext} from 'react'
+import React, { useState, useRef, useContext} from 'react'
 
 import axios from 'axios';
 
@@ -9,16 +9,20 @@ import '../styles/Navbar.scss'
 function Navbar() {
 
 	const queryRef = useRef();
+	const collectionRef = useRef();
 
 	// get images from context
 	const {images, setImages} = useContext(ImageContext);
-	
+
+	// collection selected
+	const [selected, setSelected] = useState(false);
+
 	const handleClick = async () => {
 
 		console.log(queryRef.current.value);
 		const query = queryRef.current.value;
 
-		let { data : results} = await axios.get(`https://api.unsplash.com/search/photos?query=${query}&client_id=Gn1O41PYFtLC-EdlVpqu_rsSDF5aeVCiQJdTMFQhoeY`);
+		let { data : results} = await axios.get(`https://api.unsplash.com/search/photos?query=${query}&client_id=Gn1O41PYFtLC-EdlVpqu_rsSDF5aeVCiQJdTMFQhoeY` +   (selected ? `&collections=${collectionRef.current.value}` : '')  );
 
 		results = results.results;
 		console.log(results);
@@ -43,12 +47,12 @@ function Navbar() {
 			
 			<input className="navbar-item" placeholder="Query" ref={queryRef}></input>
 
-			<select className="navbar-item" name="cars" id="cars">
-				<option selected disabled>Pick a car</option>
-				<option value="volvo">Volvo</option>
-				<option value="saab">Saab</option>
-				<option value="mercedes">Mercedes</option>
-				<option value="audi">Audi</option>
+			<select className="navbar-item" name="cars" id="cars" ref={collectionRef} onChange={() => setSelected(true)}>
+				<option selected disabled>Collections</option>
+				<option value="featured">Featured</option>
+				<option value="wallpapers">Wallpapers</option>
+				<option value="nature">Nature</option>
+				<option value="textures,patterns">Textures & Patterns</option>
 			</select>
 
 			<button className="navbar-item" onClick={handleClick}>Search</button>
