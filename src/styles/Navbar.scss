@@ -36,7 +36,8 @@
 		// remove arrow
 		margin: 0;      
 		-webkit-appearance: none;
-		-moz-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 
 		// adjust arrow
 		background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
@@ -47,14 +48,15 @@
 
 		option
 		{
-			font-size: 1.2em;
-			padding : 200px;
+			color : red;
+			font-weight: bold;
+			background-color: yellow;
+			font-size: 1.5rem;
+			border : 1px solid orange;
+			
 		}
-		
-		option > *
-		{
-			background-color : red;
-		}
+
+
 
 	}
 

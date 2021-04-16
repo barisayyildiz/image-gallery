@@ -4,6 +4,8 @@ import axios from 'axios';
 
 import { ImageContext } from '../App';
 
+import Dropdown from './Dropdown.js';
+
 import '../styles/Navbar.scss'
 
 function Navbar() {
@@ -17,12 +19,17 @@ function Navbar() {
 	// collection selected
 	const [selected, setSelected] = useState(false);
 
+	// collection name
+	const [collectionName, setCollection] = useState("");
+
 	const handleClick = async () => {
 
 		console.log(queryRef.current.value);
 		const query = queryRef.current.value;
 
-		let { data : results} = await axios.get(`https://api.unsplash.com/search/photos?query=${query}&client_id=Gn1O41PYFtLC-EdlVpqu_rsSDF5aeVCiQJdTMFQhoeY` +   (selected ? `&collections=${collectionRef.current.value}` : '')  );
+		// let { data : results} = await axios.get(`https://api.unsplash.com/search/photos?query=${query}&client_id=Gn1O41PYFtLC-EdlVpqu_rsSDF5aeVCiQJdTMFQhoeY` +   (selected ? `&collections=${collectionRef.current.value}` : '')  );
+
+		let {data : results} = await axios.get(`https://api.unsplash.com/search/photos?query=${query}&client_id=Gn1O41PYFtLC-EdlVpqu_rsSDF5aeVCiQJdTMFQhoeY` +   (selected !== '' ? `&collections=${collectionName}` : ''))
 
 		results = results.results;
 		console.log(results);
@@ -47,13 +54,10 @@ function Navbar() {
 			
 			<input className="navbar-item" placeholder="Query" ref={queryRef}></input>
 
-			<select className="navbar-item" name="cars" id="cars" ref={collectionRef} onChange={() => setSelected(true)}>
-				<option selected disabled>Collections</option>
-				<option value="featured">Featured</option>
-				<option value="wallpapers">Wallpapers</option>
-				<option value="nature">Nature</option>
-				<option value="textures,patterns">Textures & Patterns</option>
-			</select>
+			<Dropdown value={{
+				collectionName,
+				setCollection
+			}}></Dropdown>
 
 			<button className="navbar-item" onClick={handleClick}>Search</button>
 
