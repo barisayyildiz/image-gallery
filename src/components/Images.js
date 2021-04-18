@@ -7,13 +7,13 @@ import { ImageContext } from '../App';
 function Images() {
 
 	// get images from context
-	const {images, setImages} = useContext(ImageContext);
+	const {images, setImages, notFound} = useContext(ImageContext);
 
 	return (
-		
+		<>
 		<div className="masonry">
 			{
-				images ?
+				images.length ?
 				images.map(item => {
 					return(
 						<div className="brick">
@@ -26,6 +26,17 @@ function Images() {
 			}
 
 		</div>
+
+		{
+			notFound &&
+			(
+			<div className="not-found">
+				<p>No results found...</p>
+			</div>
+			)
+		}
+
+		</>
 
 	)
 }

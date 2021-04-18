@@ -13,6 +13,7 @@ export const ImageContext = createContext();
 function App() {
 
 	const [images, setImages] = useState([]);
+	const [notFound, setNotFound] = useState(false);
 
   return (
     <div className="App">
@@ -21,7 +22,9 @@ function App() {
 
 				value={{
 					images,
-					setImages
+					setImages,
+					notFound,
+					setNotFound
 				}}
 			>
 

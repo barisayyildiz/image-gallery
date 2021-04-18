@@ -14,7 +14,7 @@ function Navbar() {
 	const collectionRef = useRef();
 
 	// get images from context
-	const {images, setImages} = useContext(ImageContext);
+	const {images, setImages, notFound, setNotFound} = useContext(ImageContext);
 
 	// collection selected
 	const [selected, setSelected] = useState(false);
@@ -40,6 +40,8 @@ function Navbar() {
 					link : item.links.html
 			})
 		})
+
+		!images.length ? setNotFound(true) : setNotFound(false);
 
 		setImages(images);
 

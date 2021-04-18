@@ -23,3 +23,18 @@
   } 
 }
 
+.not-found
+{
+	p
+	{
+		color : red;
+		padding : 2px 20px;
+		font-family: 'Open Sans';
+	}
+
+	background-color: rgba(255, 74, 74, 0.1);
+	width : 60%;
+	margin : -200px auto;
+	padding : 4px;
+}
+
