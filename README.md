@@ -10,10 +10,14 @@ To run the application in your local
 
 `
 git clone https://github.com/barisayyildiz/hipo-internship-application.git
+
 cd hipo-internship-application
+
 npm install
+
 npm start
 `
 
 Thank you for your consideration,
+
 Barış Ayyıldız
