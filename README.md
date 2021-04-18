@@ -8,7 +8,7 @@ I really tried to make it look like to the [assignment](https://www.figma.com/fi
 
 To run the application in your local
 
-`
+```
 git clone https://github.com/barisayyildiz/hipo-internship-application.git
 
 cd hipo-internship-application
@@ -16,7 +16,7 @@ cd hipo-internship-application
 npm install
 
 npm start
-`
+```
 
 Thank you for your consideration,
 
