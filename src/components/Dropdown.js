@@ -21,29 +21,35 @@ function Dropdown(props) {
 				{open &&
 					<div className="options">
 						<ul>
-							<li className="Featured" onClick={e => {
+							<li onClick={e => {
 								setCollection("Featured");
 								setSelected(true)
 							}}>
 								<span>Featured</span>
 							</li>
-							<li className="Wallpapers" onClick={e => {
+							<li onClick={e => {
 								setCollection("Wallpapers");
 								setSelected(true);
 							}}>
 								<span>Wallpapers</span>
 							</li>
-							<li className="Nature" onClick={e => {
+							<li onClick={e => {
 								setCollection("Nature");
 								setSelected(true);
 							}}>
 								<span>Nature</span>
 							</li>
-							<li className="Textures,Patterns" onClick={e => {
+							<li onClick={e => {
 								setCollection("Textures,Patterns");
 								setSelected(true);
 							}}>
 								<span>Textures & Patterns</span>
+							</li>
+							<li onClick={e => {
+								setCollection("Architecture");
+								setSelected(true);
+							}}>
+								<span>Architecture</span>
 							</li>
 						</ul>
 					</div>
