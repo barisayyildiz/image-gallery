@@ -82,7 +82,9 @@ function Navbar() {
 
 			<Dropdown value={{
 				collectionName,
-				setCollection
+				setCollection,
+				selected,
+				setSelected
 			}}></Dropdown>
 
 			<button className="navbar-item" onClick={handleClick}>Search</button>
