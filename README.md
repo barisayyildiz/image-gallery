@@ -6,7 +6,7 @@
 ### To run the application
 
 ```
-git@github.com:barisayyildiz/image-search-gallery.git
+git clone git@github.com:barisayyildiz/image-search-gallery.git
 cd image-search-gallery
 npm install
 npm start
