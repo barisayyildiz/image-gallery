@@ -6,7 +6,7 @@
 ### To run the application
 
 ```
-git clone https://github.com/barisayyildiz/hipo-internship-application.git
+git@github.com:barisayyildiz/image-search-gallery.git
 cd image-search-gallery
 npm install
 npm start
