@@ -16,12 +16,17 @@ const Navbar = () => {
       const { data: { results } } = await axios.get(
         `${contants.BASE_URL}?${queryString}`
       );
-      const links = results.map((result: any) => ({
-        source: result.urls.raw,
-        link: result.links.html
-      }));
-      dispatch(setImages(links));
-      dispatch(setLoading(false));
+      if (results.length === 0) {
+        dispatch(setError('No images found'));
+        dispatch(setLoading(false));
+      } else {
+        const links = results.map((result: any) => ({
+          source: result.urls.raw,
+          link: result.links.html
+        }));
+        dispatch(setImages(links));
+        dispatch(setLoading(false));
+      }
     } catch (err) {
       dispatch(setError(err));
     }
